@@ -5,16 +5,16 @@ import ContextData from "../context/ContextData";
 
 const NewsBoard = () => {
 
-  const { category, articles } = useContext(ContextData);
+  const { category, articles,isLoading } = useContext(ContextData);
 
   return (
     <>
       {isLoading ? (
         <div>
-          <h2 className="text-center text-danger m-5">News are loading...</h2>
+          <h2 className="text-center text-primary m-5">News are loading...</h2>
         </div>
       ) :
-        (<div>
+        (<div className="news-board">
 
           {articles.map((news, index) => {
             return <NewsItems

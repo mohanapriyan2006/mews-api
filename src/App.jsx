@@ -9,27 +9,29 @@ import Home from "./Components/Home";
 import Category from "./Components/Category";
 import About from "./Components/About";
 
+
 const App = () => {
-
-  
-
 
   return (
     <BrowserRouter>
-    <div className="app">
-    <ContextProvider>
-    <Navbar />
-    
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/category" element={<Category/>}/>
-      <Route path="/about" element={<About/>}/>
-      <Route path="*" element={<Home/>}/>
-    </Routes>
+      <div className="app">
+        <ContextProvider>
+          <Navbar />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/category" element={<Category />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
 
-    <Footer/>
-    </ContextProvider>
-    </div>
+          </div>
+
+
+
+          <Footer />
+        </ContextProvider>
+      </div>
     </BrowserRouter>
   )
 }

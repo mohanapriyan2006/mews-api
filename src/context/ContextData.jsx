@@ -6,7 +6,8 @@ export const ContextProvider = ({ children }) => {
 
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [category, setCategory] = useState("general");
+    const [category, setCategory] = useState("General");
+    const [fetchError,setFetchError] = useState(null);
 
 
     useEffect(() => {
@@ -16,7 +17,7 @@ export const ContextProvider = ({ children }) => {
             try {
                 const response = await fetch(URL);
                 if (!response.ok) {
-                    console.log(response.status);
+                    setFetchError(response.status);
                 }
                 const data = await response.json();
                 setArticles(data.articles);
@@ -25,8 +26,7 @@ export const ContextProvider = ({ children }) => {
             }
             catch (err) {
                 setIsLoading(false)
-                console.log(err.message);
-
+                setFetchError(err.message);
             }
         }
 
@@ -34,14 +34,13 @@ export const ContextProvider = ({ children }) => {
 
     }, [category])
 
-    console.log(articles);
 
     return (
         <ContextData.Provider
             value={{
 
-                articles
-                ,
+                articles,
+                fetchError,
                 setArticles,
                 isLoading,
                 setIsLoading,

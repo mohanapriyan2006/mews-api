@@ -9,7 +9,8 @@ const Category = () => {
 
   return (
     <div className="category">
-        <h2 className="badge bg-primary">{category}</h2>
+        <h2 className="text-center"><span className="badge bg-primary my-4 mx-2">{category}</span>News</h2>
+        
         <NewsBoard category={category}/>
     </div>
   )
