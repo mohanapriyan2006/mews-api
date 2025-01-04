@@ -1,0 +1,20 @@
+.nav-color{
+  background-color: rgb(59, 91, 255);
+}
+.logo-color{
+  background-color: rgb(30, 57, 193);
+
+}
+.card-color{
+  background-color: rgb(78, 90, 152);
+
+}
+
+.cat-links li div{
+  width: auto;
+  cursor: pointer;
+}
+
+.cat-links li div:hover{
+  color: rgb(39, 39, 39);
+}
